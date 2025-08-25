@@ -1,5 +1,6 @@
 import tkinter as tk
 from commands import check_balance
+from deposit import show_deposit_ui
 
 # Create the main window
 root = tk.Tk()
@@ -9,7 +10,7 @@ root.title("ATM Simulator")
 
 # Create a tk frame for main window
 frame = tk.Frame(root, padx=50, pady=50)
-frame.pack()
+frame.grid(row=0, column=0, sticky="nsew")
 
 # Add account number entry
 account_number_entry = tk.Entry(frame, width=15)
@@ -22,7 +23,7 @@ check_balance_btn = tk.Button(frame, text="Check Balance", width='15', height='2
 check_balance_btn.grid(column=1, row=2)
 
 # Add deposit button
-deposit_btn = tk.Button(frame, text="Deposit", width='15', height='2')
+deposit_btn = tk.Button(frame, text="Deposit", width='15', height='2', command=lambda : show_deposit_ui(root))
 # deposit_btn.pack(side='top')
 deposit_btn.grid(column=2, row=2)
 
